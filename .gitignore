@@ -20,7 +20,6 @@
 *.nav
 *.o
 *.out
-*.pdf
 *.pdfsync
 *.prj
 *.pyc
@@ -68,3 +67,4 @@ ___*
 .env/installed_pip_pkgs
 .env/installed_spec.json
 !.pre-commit-config.yaml
+src/original_data/electricity_data/*.csv
