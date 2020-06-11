@@ -1,0 +1,49 @@
+digraph {
+	graph [bgcolor="#333333" fontcolor=white fontsize=48 label="DAG of Project" rankdir=LR]
+	node [color=white fillcolor="#006699" fontcolor=white fontname=Helvetica shape=hexagon style=filled]
+	edge [arrowhead=open color=white fontcolor=white fontname=Courier fontsize=12 style=dashed]
+	get_simulation_draws
+	"initial_locations.csv"
+	get_simulation_draws -> "initial_locations.csv"
+	schelling_baseline
+	"initial_locations.csv"
+	"initial_locations.csv" -> schelling_baseline
+	"agent.py"
+	"agent.py" -> schelling_baseline
+	"baseline.json"
+	"baseline.json" -> schelling_baseline
+	"schelling_baseline.pickle"
+	schelling_baseline -> "schelling_baseline.pickle"
+	"schelling_baseline.log"
+	schelling_baseline -> "schelling_baseline.log"
+	schelling_max_moves_2
+	"initial_locations.csv"
+	"initial_locations.csv" -> schelling_max_moves_2
+	"agent.py"
+	"agent.py" -> schelling_max_moves_2
+	"max_moves_2.json"
+	"max_moves_2.json" -> schelling_max_moves_2
+	"schelling_max_moves_2.pickle"
+	schelling_max_moves_2 -> "schelling_max_moves_2.pickle"
+	"schelling_max_moves_2.log"
+	schelling_max_moves_2 -> "schelling_max_moves_2.log"
+	plot_locations_baseline
+	"schelling_baseline.pickle"
+	"schelling_baseline.pickle" -> plot_locations_baseline
+	"baseline.json"
+	"baseline.json" -> plot_locations_baseline
+	"schelling_baseline.png"
+	plot_locations_baseline -> "schelling_baseline.png"
+	plot_locations_max_moves_2
+	"schelling_max_moves_2.pickle"
+	"schelling_max_moves_2.pickle" -> plot_locations_max_moves_2
+	"max_moves_2.json"
+	"max_moves_2.json" -> plot_locations_max_moves_2
+	"schelling_max_moves_2.png"
+	plot_locations_max_moves_2 -> "schelling_max_moves_2.png"
+	research_paper
+	""
+	research_pres_30min
+	""
+	""
+}

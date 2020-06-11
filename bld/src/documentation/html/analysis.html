@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Main model estimations / simulations &#8212; DST effect on electrricity consnsumption  documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Visualisation and results formatting" href="final.html" />
+    <link rel="prev" title="Data management" href="data_management.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>DST effect on electrricity consnsumption  documentation</span></a></h1>
+        <h2 class="heading"><span>Main model estimations / simulations</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="data_management.html">Data management</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="final.html">Visualisation and results formatting</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <div class="section" id="main-model-estimations-simulations">
+<span id="analysis"></span><h1>Main model estimations / simulations<a class="headerlink" href="#main-model-estimations-simulations" title="Permalink to this headline">¶</a></h1>
+<p>Documentation of the code in <em>src.analysis</em>. This is the core of the project.</p>
+<div class="section" id="module-src.analysis.schelling">
+<span id="schelling-example"></span><h2>Schelling example<a class="headerlink" href="#module-src.analysis.schelling" title="Permalink to this headline">¶</a></h2>
+<p>Run a Schelling (1969, <a class="bibtex reference internal" href="references.html#schelling69" id="id1">[1]</a>) segregation
+model and store a list with locations by type at each cycle.</p>
+<p>The scripts expects that a model name is passed as an
+argument. The model name must correspond to a file called
+<code class="docutils literal notranslate"><span class="pre">[model_name].json</span></code> in the “IN_MODEL_SPECS” directory.</p>
+<dl class="function">
+<dt id="src.analysis.schelling.run_analysis">
+<code class="sig-name descname">run_analysis</code><span class="sig-paren">(</span><em class="sig-param">agents</em>, <em class="sig-param">model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/analysis/schelling.html#run_analysis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.analysis.schelling.run_analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an initial set of <em>agents</em> and the <em>model</em>’s parameters,
+return a list of dictionaries with <em>type: N x 2</em> items.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="src.analysis.schelling.setup_agents">
+<code class="sig-name descname">setup_agents</code><span class="sig-paren">(</span><em class="sig-param">model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/analysis/schelling.html#setup_agents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.analysis.schelling.setup_agents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the simulated initial locations and return a list
+that holds all agents.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="data_management.html">Data management</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="final.html">Visualisation and results formatting</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-, Anastasiia Gordienko.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+  </body>
+</html>

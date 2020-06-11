@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Introduction &#8212; DST effect on electrricity consnsumption  documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Original data" href="original_data.html" />
+    <link rel="prev" title="Welcome to the DST effect on electrricity consnsumption project’s documentation!" href="index.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>DST effect on electrricity consnsumption  documentation</span></a></h1>
+        <h2 class="heading"><span>Introduction</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Welcome to the DST effect on electrricity consnsumption project’s documentation!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="original_data.html">Original data</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <div class="section" id="introduction">
+<span id="id1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>You can find the documentation on the rationale, Waf, and more background at <a class="reference external" href="https://econ-project-templates.readthedocs.io/en/stable/">https://econ-project-templates.readthedocs.io/en/stable/</a></p>
+<p>The Python version of the template uses a modified version of Stachurski’s and Sargent’s code accompanying their Online Course <a class="bibtex reference internal" href="references.html#stachurskisargent13" id="id2">[2]</a> for Schelling’s (1969, <a class="bibtex reference internal" href="references.html#schelling69" id="id3">[1]</a>) segregation model as the running exmaple.</p>
+<div class="section" id="getting-started">
+<span id="id4"></span><h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p><strong>This assumes you have completed the steps in the `Getting Started section of the documentation &lt;https://econ-project-templates.readthedocs.io/en/stable/getting_started.html&gt;`_ and **everything worked.</strong></p>
+<p>The logic of the project template works by step of the analysis:</p>
+<ol class="arabic simple">
+<li><p>Data management</p></li>
+<li><p>The actual estimations / simulations / ?</p></li>
+<li><p>Visualisation and results formatting (e.g. exporting of LaTeX tables)</p></li>
+<li><p>Research paper and presentations.</p></li>
+</ol>
+<p>It can be useful to have code and model parameters available to more than one of these steps, in that case see sections <a class="reference internal" href="model_specs.html#model-specifications"><span class="std std-ref">Model specifications</span></a>, <a class="reference internal" href="model_code.html#model-code"><span class="std std-ref">Model code</span></a>, and <a class="reference internal" href="library.html#library"><span class="std std-ref">Code library</span></a>.</p>
+<p>First of all, think about whether this structure fits your needs – if it does not, you need to adjust (delete/add/rename) directories and files in the following locations:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Directories in <strong>src/</strong>;</p></li>
+<li><p>The list of included wscript files in <strong>src/wscript</strong>;</p></li>
+<li><p>The documentation source files in <strong>src/documentation/</strong> (Note: These should follow the directories in <strong>src</strong> exactly);</p></li>
+<li><p>The list of included documentation source files in <strong>src/documentation/index.rst</strong></p></li>
+</ul>
+</div></blockquote>
+<p>Later adjustments should be painlessly possible, so things won’t be set in stone.</p>
+<p>Once you have done that, move your source data to <strong>src/original_data/</strong> and start filling up the actual steps of the project workflow (data management, analysis, final steps, paper). All you should need to worry about is to call the correct task generators in the wscript files. Always specify the actions in the wscript that lives in the same directory as your main source file. Make sure you understand how the paths work in Waf and how to use the auto-generated files in the language you are using particular language (see the section <a class="reference internal" href="#project-paths"><span class="std std-ref">Project paths</span></a> below).</p>
+</div>
+<div class="section" id="project-paths">
+<span id="id5"></span><h2>Project paths<a class="headerlink" href="#project-paths" title="Permalink to this headline">¶</a></h2>
+<p>A variety of project paths are defined in the top-level wscript file. These are exported to header files in other languages. So in case you require different paths (e.g. if you have many different datasets, you may want to have one path to each of them), adjust them in the top-level wscript file.</p>
+<p>The following is taken from the top-level wscript file. Modify any project-wide path settings there.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="k">def</span> <span class="nf">set_project_paths</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a dictionary with project paths represented by Waf nodes.&quot;&quot;&quot;</span>
+
+    <span class="n">pp</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;PROJECT_ROOT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;IN_DATA&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;src/original_data/&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;IN_MODEL_CODE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;src/model_code&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;IN_MODEL_SPECS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;src/model_specs&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;LIBRARY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;src/library&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;BLD&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;OUT_DATA&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/out/data&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;OUT_ANALYSIS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/out/analysis&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;OUT_FINAL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/out/final&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;OUT_FIGURES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/out/figures&quot;</span>
+    <span class="c1"># OUT_MODEL_SPECS is only required for using Stata with JSON and</span>
+    <span class="c1"># can be safely deleted otherwise</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;OUT_MODEL_SPECS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/src/model_specs&quot;</span>
+    <span class="n">pp</span><span class="p">[</span><span class="s2">&quot;OUT_TABLES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/out/tables&quot;</span>
+
+</pre></div>
+</div>
+<p>As should be evident from the similarity of the names, the paths follow the steps of the analysis in the <code class="file docutils literal notranslate"><span class="pre">src</span></code> directory:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><strong>data_management</strong> → <strong>OUT_DATA</strong></p></li>
+<li><p><strong>analysis</strong> → <strong>OUT_ANALYSIS</strong></p></li>
+<li><p><strong>final</strong> → <strong>OUT_FINAL</strong>, <strong>OUT_FIGURES</strong>, <strong>OUT_TABLES</strong></p></li>
+</ol>
+</div></blockquote>
+<p>These will re-appear in automatically generated header files by calling the <code class="docutils literal notranslate"><span class="pre">write_project_paths</span></code> task generator (just use an output file with the correct extension for the language you need – <code class="docutils literal notranslate"><span class="pre">.py</span></code>, <code class="docutils literal notranslate"><span class="pre">.r</span></code>, <code class="docutils literal notranslate"><span class="pre">.m</span></code>, <code class="docutils literal notranslate"><span class="pre">.do</span></code>)</p>
+<p>By default, these header files are generated in the top-level build directory, i.e. <code class="docutils literal notranslate"><span class="pre">bld</span></code>. The Python version defines a dictionary <code class="docutils literal notranslate"><span class="pre">project_paths</span></code> and a couple of convencience functions documented below. You can access these by adding a line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bld.project_paths</span> <span class="kn">import</span> <span class="n">XXX</span>
+</pre></div>
+</div>
+<p>at the top of you Python-scripts. Here is the documentation of the module:</p>
+<blockquote>
+<div><p><strong>bld.project_paths</strong></p>
+<span class="target" id="module-bld.project_paths"></span><p>Define a dictionary <em>project_paths</em> with path
+definitions for the entire project.</p>
+<p>This module is automatically generated by Waf, never change it!</p>
+<p>If paths need adjustment, change them in the root wscript file.</p>
+<dl class="function">
+<dt id="bld.project_paths.project_paths_join">
+<code class="sig-name descname">project_paths_join</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bld/project_paths.html#project_paths_join"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bld.project_paths.project_paths_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given input of a <em>key</em> in the <em>project_paths</em> dictionary and a number
+of path arguments <em>args</em>, return the joined path constructed by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_paths</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="bld.project_paths.project_paths_join_latex">
+<code class="sig-name descname">project_paths_join_latex</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bld/project_paths.html#project_paths_join_latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bld.project_paths.project_paths_join_latex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given input of a <em>key</em> in the <em>project_paths</em> dictionary and a number
+of path arguments <em>args</em>, return the joined path constructed by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_paths</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and backslashes replaced by forward slashes.</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Welcome to the DST effect on electrricity consnsumption project’s documentation!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="original_data.html">Original data</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-, Anastasiia Gordienko.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+  </body>
+</html>

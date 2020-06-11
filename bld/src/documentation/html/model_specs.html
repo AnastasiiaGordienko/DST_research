@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Model specifications &#8212; DST effect on electrricity consnsumption  documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Code library" href="library.html" />
+    <link rel="prev" title="Model code" href="model_code.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>DST effect on electrricity consnsumption  documentation</span></a></h1>
+        <h2 class="heading"><span>Model specifications</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="model_code.html">Model code</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="library.html">Code library</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <div class="section" id="model-specifications">
+<span id="id1"></span><h1>Model specifications<a class="headerlink" href="#model-specifications" title="Permalink to this headline">¶</a></h1>
+<p>The directory <em>src.model_specs</em> contains <a class="reference external" href="http://www.json.org/">JSON</a> files with model specifications. The choice of JSON is motivated by the attempt to be language-agnostic: JSON is quite expressive and there are parsers for nearly all languages. <a class="footnote-reference brackets" href="#id3" id="id2">1</a></p>
+<p>The best way to use this is to save a model as <code class="docutils literal notranslate"><span class="pre">[model_name].json</span></code> and then pass <code class="docutils literal notranslate"><span class="pre">[model_name]</span></code> to your code using the <code class="docutils literal notranslate"><span class="pre">append</span></code> keyword of the <code class="docutils literal notranslate"><span class="pre">run_py_script</span></code> task generator.</p>
+<blockquote>
+<div><dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>Stata is the only execption I know of. You find a  converter in the wscript file of the Stata branch. Note that there is <a class="reference external" href="http://ideas.repec.org/c/boc/bocode/s457407.html">insheetjson</a>, but that will read a JSON file into the data set rather than into macros, which is what we need here.</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="model_code.html">Model code</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="library.html">Code library</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-, Anastasiia Gordienko.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+  </body>
+</html>
